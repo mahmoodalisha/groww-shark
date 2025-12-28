@@ -24,7 +24,7 @@ export default function ViewWatchlistModal() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
       <div className="w-full max-w-lg rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
 
-        {/* HEADER */}
+        
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-700">
           <h2 className="text-lg font-semibold">{watchlist.name}</h2>
 
@@ -33,7 +33,7 @@ export default function ViewWatchlistModal() {
           </button>
         </div>
 
-        {/* BODY */}
+        
         <div className="px-5 py-4 max-h-[60vh] overflow-y-auto">
           {watchlist.items.length === 0 ? (
             <p className="text-sm text-gray-400 text-center">
@@ -74,7 +74,7 @@ export default function ViewWatchlistModal() {
           )}
         </div>
 
-        {/* FOOTER */}
+        
         <div className="flex items-center justify-between px-5 py-4 border-t border-gray-700">
           <button
             onClick={() => {

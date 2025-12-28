@@ -1,6 +1,5 @@
-//src/lib/normalizers/stockHistory.js
-//Alpha Vantage → Chart.js format
-// Alpha Vantage → unified OHLC format
+//Alpha Vantage  Chart.js format
+// Alpha Vantage  unified OHLC format
 
 export function normalizeStockHistory(data) {
   const timeSeries =

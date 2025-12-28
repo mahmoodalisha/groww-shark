@@ -1,4 +1,3 @@
-// src/store/index.js
 import { configureStore } from '@reduxjs/toolkit';
 import marketDataReducer from './marketDataSlice';
 import widgetsReducer from './widgetsSlice';

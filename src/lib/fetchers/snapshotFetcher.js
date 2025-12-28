@@ -1,4 +1,3 @@
-//src/lib/fetchers/snapshotFetcher.js
 import { fetchWithCache } from './cache';
 import { normalizeCoinRankingCoins } from '../normalizers/cryptoNormalizer';
 

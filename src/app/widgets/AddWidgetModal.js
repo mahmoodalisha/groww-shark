@@ -1,10 +1,11 @@
-// src/app/widgets/AddWidgetModal.js
 'use client';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addWidget, closeAddWidget } from '@/store/widgetsSlice';
 import { X, Globe, BarChart3, Table, CreditCard, RefreshCw } from 'lucide-react';
+import JsonExplorer from '@/components/JsonExplorer';
+import { v4 as uuid } from 'uuid';
 
 export default function AddWidgetModal() {
   const dispatch = useDispatch();
@@ -13,18 +14,37 @@ export default function AddWidgetModal() {
   const [apiUrl, setApiUrl] = useState('');
   const [viewType, setViewType] = useState('table');
   const [refreshInterval, setRefreshInterval] = useState(30);
+  const [previewData, setPreviewData] = useState(null);
+  const [fields, setFields] = useState([]);
 
-  const handleAdd = () => {
-    dispatch(
-      addWidget({
-        name,
-        apiUrl,
-        viewType,
-        refreshInterval,
-      })
-    );
-    dispatch(closeAddWidget());
-  };
+  const fetchPreview = async () => {
+  const res = await fetch(apiUrl);
+  const json = await res.json();
+  setPreviewData(json);
+};
+
+const toggleField = path => {
+  setFields(prev =>
+    prev.some(f => f.path === path)
+      ? prev.filter(f => f.path !== path)
+      : [...prev, { path, format: 'number' }]
+  );
+};
+
+const handleAdd = () => {
+  dispatch(addWidget({
+    id: uuid(),
+    name,
+    description: '',
+    apiUrl,
+    fields,
+    viewType,
+    refreshInterval,
+  }));
+  dispatch(closeAddWidget());
+};
+
+
 
   return (
     <div className="fixed inset-0 bg-gray-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -79,6 +99,28 @@ export default function AddWidgetModal() {
               Ensure the API supports CORS and returns JSON format
             </p>
           </div>
+          <button
+          onClick={fetchPreview}
+          disabled={!apiUrl.trim()}
+          className="w-full py-2 rounded-xl bg-gray-700 hover:bg-gray-600 transition text-sm font-medium disabled:opacity-50"
+          >
+          Preview API Response
+          </button>
+          {previewData && (
+          <div className="mt-4 bg-gray-900/60 rounded-xl p-4 border border-gray-700">
+          <h4 className="text-sm font-semibold text-emerald-400 mb-2">
+          Select Fields to Display
+          </h4>
+
+          <JsonExplorer
+          data={previewData}
+          selected={fields}
+          onToggle={toggleField}
+          />
+         </div>
+        )}
+
+
 
           {/* View Type */}
           <div>

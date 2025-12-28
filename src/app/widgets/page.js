@@ -1,4 +1,3 @@
-// src/app/widgets/page.js
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +12,7 @@ export default function WidgetsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-850 to-gray-900 text-gray-100 p-6">
-      {/* Header with trading platform styling */}
+      {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="p-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg">
@@ -100,7 +99,7 @@ export default function WidgetsPage() {
         </button>
       </div>
 
-      {/* Footer */}
+      
       <div className="mt-8 pt-6 border-t border-gray-800/50 text-center">
         <p className="text-sm text-gray-500">
           Quantum Dashboard v2.1 • Data updates every 30s • 

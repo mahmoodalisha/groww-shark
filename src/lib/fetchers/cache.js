@@ -1,6 +1,6 @@
 // Simple in-memory cache using Map
 const cache = new Map();
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 5 * 60 * 1000; 
 
 export async function fetchWithCache(url, cacheKey) {
   const cached = cache.get(cacheKey);

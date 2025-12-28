@@ -1,5 +1,3 @@
-//src/app/watchlist/CreatewatchlistModal.jsx
-
 'use client';
 
 import { useState } from 'react';
@@ -45,7 +43,7 @@ export default function CreateWatchlistModal() {
           />
         </div>
 
-        {/* Footer */}
+        
         <div className="flex justify-end gap-2 px-5 py-4 border-t border-gray-700">
           <button
             onClick={() => dispatch(toggleCreateWatchlist())}

@@ -1,8 +1,7 @@
-//src/store/widgetsSlice.js
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  widgets: [], // all widgets on dashboard
+  widgets: JSON.parse(localStorage.getItem('widgets')) || [],
   isAddingWidget: false,
 };
 
@@ -10,34 +9,26 @@ const widgetsSlice = createSlice({
   name: 'widgets',
   initialState,
   reducers: {
-    openAddWidget(state) {
+    openAddWidget: state => {
       state.isAddingWidget = true;
     },
-    closeAddWidget(state) {
+    closeAddWidget: state => {
       state.isAddingWidget = false;
     },
-
-    addWidget: {
-      reducer(state, action) {
-        state.widgets.push(action.payload);
-      },
-      prepare(widget) {
-        return {
-          payload: {
-            id: nanoid(),
-            createdAt: Date.now(),
-            ...widget,
-          },
-        };
-      },
+    addWidget: (state, action) => {
+      state.widgets.push(action.payload);
+      localStorage.setItem('widgets', JSON.stringify(state.widgets));
     },
-
-    removeWidget(state, action) {
+    updateWidget: (state, action) => {
+      const idx = state.widgets.findIndex(w => w.id === action.payload.id);
+      if (idx !== -1) {
+        state.widgets[idx] = action.payload;
+        localStorage.setItem('widgets', JSON.stringify(state.widgets));
+      }
+    },
+    removeWidget: (state, action) => {
       state.widgets = state.widgets.filter(w => w.id !== action.payload);
-    },
-
-    reorderWidgets(state, action) {
-      state.widgets = action.payload; // for drag-drop later
+      localStorage.setItem('widgets', JSON.stringify(state.widgets));
     },
   },
 });
@@ -46,8 +37,8 @@ export const {
   openAddWidget,
   closeAddWidget,
   addWidget,
+  updateWidget,
   removeWidget,
-  reorderWidgets,
 } = widgetsSlice.actions;
 
 export default widgetsSlice.reducer;

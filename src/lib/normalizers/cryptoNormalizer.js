@@ -1,4 +1,3 @@
-//src/lib/normalizers/cryptoNormalizer.js
 export function normalizeCoinRankingCoins(coins) {
   return coins.map(coin => {
     const change = Number(coin.change);

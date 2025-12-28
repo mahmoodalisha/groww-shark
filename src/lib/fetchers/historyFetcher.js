@@ -1,4 +1,3 @@
-// src/lib/fetchers/historyFetcher.js
 //fetches historical data only when chart page opens (not during search)
 import { fetchWithCache } from './cache';
 import { normalizeStockHistory } from '../normalizers/stockHistory';

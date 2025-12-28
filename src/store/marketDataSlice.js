@@ -1,7 +1,6 @@
-// src/store/marketDataSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
-// Define market categories with symbols
+
 const initialMarketData = {
   categories: {
     indices: {
@@ -87,7 +86,6 @@ const initialMarketData = {
   },
   isLoading: false,
   lastUpdated: null
-  // REMOVED: autoRefresh, refreshInterval, apiCallCount
 };
 
 const marketDataSlice = createSlice({

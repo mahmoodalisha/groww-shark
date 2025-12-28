@@ -1,4 +1,3 @@
-// src/app/watchlist/page.js
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -35,7 +34,7 @@ import {
   openViewWatchlist
 } from '@/store/watchlistSlice';
 
-// Icon mapping for categories
+
 const categoryIcons = {
   indices: '📈',
   stocks: '📊',
@@ -509,7 +508,7 @@ export default function MarketWatchPage() {
   </div>
 )}
 
-        {/* Important Note about Free Tier */}
+        
         <div className="mb-4 p-3 bg-blue-900/20 border border-blue-700/30 rounded-lg">
           <div className="flex items-center space-x-2 text-sm text-blue-300">
             <BarChart3 size={16} />
@@ -520,7 +519,7 @@ export default function MarketWatchPage() {
           </div>
         </div>
         
-        {/* Categories */}
+        
         {getFilteredCategories().map(renderCategory)}
         
         {/* No Data State */}
@@ -540,7 +539,7 @@ export default function MarketWatchPage() {
           </div>
         )}
         
-        {/* Footer Stats */}
+        
         <div className="mt-8 pt-6 border-t border-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
@@ -575,7 +574,7 @@ export default function MarketWatchPage() {
           </div>
         </div>
       )}
-      {/* Create Watchlist Modal */}
+      
       {isCreatingWatchlist && <CreateWatchlistModal />}
 
       {viewingWatchlistId && <ViewWatchlistModal />}

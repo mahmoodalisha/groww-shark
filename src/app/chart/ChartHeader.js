@@ -1,5 +1,3 @@
-// src/app/chart/ChartHeader.js
-// src/app/chart/ChartHeader.js
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -13,7 +11,7 @@ export default function ChartHeader({
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  // ✅ Create Fuse ONCE
+  // Create Fuse ONCE
   const fuse = useMemo(() => {
     return new Fuse(categoriesData || [], {
       keys: ['name', 'symbol'],
@@ -33,7 +31,6 @@ export default function ChartHeader({
 
   return (
     <div className="relative chart-header p-4">
-      {/* Title */}
       <div className="flex items-center justify-between mb-2">
         <h1 className="text-xl font-bold">
           {selectedInstrument?.name || 'Bitcoin'}
@@ -43,7 +40,7 @@ export default function ChartHeader({
         </span>
       </div>
 
-      {/* Search Input */}
+      
       <input
         type="text"
         placeholder="Search stock / crypto / forex"
@@ -52,7 +49,6 @@ export default function ChartHeader({
         className="w-full p-2 rounded bg-gray-900 border border-gray-700 focus:outline-none"
       />
 
-      {/* 🔥 Suggestions Dropdown */}
       {suggestions.length > 0 && (
         <ul className="absolute z-50 mt-1 w-full bg-gray-900 border border-gray-700 rounded shadow-lg max-h-60 overflow-y-auto">
           {suggestions.map(item => (

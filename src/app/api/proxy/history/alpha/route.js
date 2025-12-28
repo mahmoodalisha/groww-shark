@@ -1,4 +1,3 @@
-//src/app/api/proxy/history/alpha/route.js
 import { NextResponse } from 'next/server';
 
 const ALPHA_URL = 'https://www.alphavantage.co/query';

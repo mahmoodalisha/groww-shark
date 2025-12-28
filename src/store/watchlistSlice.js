@@ -1,7 +1,6 @@
-// src/store/watchlistSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
-// Initial state
+
 const initialState = {
   watchlists: [
     {
@@ -20,7 +19,7 @@ const initialState = {
   viewingWatchlistId: null,
 };
 
-const watchlistSlice = createSlice({ //these are reducers
+const watchlistSlice = createSlice({
   name: 'watchlist',
   initialState,
   reducers: {

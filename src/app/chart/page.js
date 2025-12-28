@@ -1,5 +1,3 @@
-// src/app/chart/page.js
-// src/app/chart/page.js
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -63,7 +61,7 @@ export default function ChartPage() {
         const changePercentage = +((changeAmount / firstPrice) * 100).toFixed(2);
 
         setPriceChange({ amount: changeAmount, percentage: changePercentage });
-        // 🔥 ONLY set synthetic data for LINE chart
+        //  ONLY set synthetic data for LINE chart
         if (chartType === 'line') {
         setHistoryData(history);
         }
@@ -85,7 +83,7 @@ export default function ChartPage() {
   );
 }, []);
 
-// 🔥 Fetch historical OHLC data when switching to candlestick
+//  Fetch historical OHLC data when switching to candlestick
 useEffect(() => {
   if (!selectedInstrument) return;
   if (chartType !== 'candle') return;
@@ -228,7 +226,7 @@ useEffect(() => {
               </div>
             </div>
 
-            {/* Quick Stats Panel */}
+            
             <div className="mt-6 bg-gray-900/50 border border-gray-800 rounded-xl p-4 backdrop-blur-sm">
               <h3 className="text-lg font-semibold text-white mb-4">Quick Stats</h3>
               <div className="space-y-3">
@@ -252,10 +250,9 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Main Chart Area */}
+          
           <div className="lg:col-span-3">
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 backdrop-blur-sm">
-              {/* Chart Controls */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-2">
                   <div className="flex bg-gray-800 rounded-lg p-1">
