@@ -6,6 +6,32 @@ It supports **real-time market data**, **watchlists**, **widgets**, **advanced s
 
 ---
 
+https://github.com/user-attachments/assets/d015b915-8c26-4eef-ba18-a9384c441e06
+
+
+https://github.com/user-attachments/assets/f2b9ea9f-bcf5-4291-85ed-004e2a6968b4
+
+<img width="1916" height="971" alt="Screenshot 2025-12-25 231346" src="https://github.com/user-attachments/assets/673030b1-cbe0-4554-a108-847e70a51b16" />
+
+<img width="1916" height="1027" alt="Screenshot 2025-12-25 231429" src="https://github.com/user-attachments/assets/c09daec6-5f21-45df-8a5b-1177816f77cc" />
+
+<img width="1920" height="1080" alt="Screenshot 2025-12-26 162711" src="https://github.com/user-attachments/assets/0de9e276-9158-4db9-9930-ccd0036ea5c2" />
+
+<img width="1920" height="1020" alt="Screenshot 2025-12-26 171227" src="https://github.com/user-attachments/assets/f8e07802-e5e3-42e9-8ae2-b05aac6dcc1b" />
+
+
+<img width="1920" height="1020" alt="Screenshot 2025-12-27 233746" src="https://github.com/user-attachments/assets/a7fc6062-9514-4678-b63f-70f5fbbc313c" />
+
+<img width="1920" height="1020" alt="Screenshot 2025-12-27 233819" src="https://github.com/user-attachments/assets/dffbf203-993c-49b9-ab0f-168d0b47f6f8" />
+
+
+<img width="1920" height="1080" alt="Screenshot 2025-12-27 021710" src="https://github.com/user-attachments/assets/3246953e-e174-42cf-bacf-c1c8716dcef5" />
+
+
+<img width="1920" height="1020" alt="Screenshot 2025-12-27 190752" src="https://github.com/user-attachments/assets/78e62b37-a180-47af-8eb0-f35c2b1b2b6a" />
+
+---
+
 ## 🚀 Features Overview
 
 ### 🔹 Market Coverage
