@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  widgets: JSON.parse(localStorage.getItem('widgets')) || [],
+  widgets: [],
   isAddingWidget: false,
 };
 
@@ -15,20 +15,20 @@ const widgetsSlice = createSlice({
     closeAddWidget: state => {
       state.isAddingWidget = false;
     },
+    setWidgets: (state, action) => {
+      state.widgets = action.payload;
+    },
     addWidget: (state, action) => {
       state.widgets.push(action.payload);
-      localStorage.setItem('widgets', JSON.stringify(state.widgets));
     },
     updateWidget: (state, action) => {
       const idx = state.widgets.findIndex(w => w.id === action.payload.id);
       if (idx !== -1) {
         state.widgets[idx] = action.payload;
-        localStorage.setItem('widgets', JSON.stringify(state.widgets));
       }
     },
     removeWidget: (state, action) => {
       state.widgets = state.widgets.filter(w => w.id !== action.payload);
-      localStorage.setItem('widgets', JSON.stringify(state.widgets));
     },
   },
 });
@@ -36,6 +36,7 @@ const widgetsSlice = createSlice({
 export const {
   openAddWidget,
   closeAddWidget,
+  setWidgets,
   addWidget,
   updateWidget,
   removeWidget,

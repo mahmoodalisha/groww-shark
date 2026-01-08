@@ -5,10 +5,16 @@ import { Plus, TrendingUp, Grid3x3 } from 'lucide-react';
 import WidgetCard from '@/components/WidgetCard';
 import AddWidgetModal from './AddWidgetModal';
 import { openAddWidget } from '@/store/widgetsSlice';
+import { useEffect } from 'react';
+
 
 export default function WidgetsPage() {
   const dispatch = useDispatch();
   const { widgets, isAddingWidget } = useSelector(s => s.widgets);
+  useEffect(() => {
+  localStorage.setItem('widgets', JSON.stringify(widgets));
+    }, [widgets]);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-850 to-gray-900 text-gray-100 p-6">
