@@ -16,6 +16,8 @@ export default function AddWidgetModal() {
   const [refreshInterval, setRefreshInterval] = useState(30);
   const [previewData, setPreviewData] = useState(null);
   const [fields, setFields] = useState([]);
+  const [chartType, setChartType] = useState('line');
+
 
   const fetchPreview = async () => {
   const res = await fetch(apiUrl);
@@ -25,11 +27,12 @@ export default function AddWidgetModal() {
 
 const toggleField = path => {
   setFields(prev =>
-    prev.some(f => f.path === path)
-      ? prev.filter(f => f.path !== path)
-      : [...prev, { path, format: 'number' }]
+    prev.some(f => JSON.stringify(f.path) === JSON.stringify(path))
+      ? prev.filter(f => JSON.stringify(f.path) !== JSON.stringify(path))
+      : [...prev, { path }]
   );
 };
+
 
 const handleAdd = () => {
   dispatch(addWidget({
@@ -39,11 +42,16 @@ const handleAdd = () => {
     apiUrl,
     fields,
     viewType,
+    chartType,
     refreshInterval,
   }));
   dispatch(closeAddWidget());
 };
 
+const isInvalidChartSelection =
+  viewType === 'chart' &&
+  chartType === 'candlestick' &&
+  fields.length !== 4;
 
 
   return (
@@ -155,6 +163,39 @@ const handleAdd = () => {
               ))}
             </div>
           </div>
+          {/* Chart Type (only when Chart is selected) */}
+{viewType === 'chart' && (
+  <div>
+    <label className="block text-sm font-medium text-gray-300 mb-3">
+      Chart Type
+    </label>
+
+    <div className="grid grid-cols-2 gap-3">
+      <button
+        onClick={() => setChartType('line')}
+        className={`p-4 rounded-xl border transition-all ${
+          chartType === 'line'
+            ? 'border-emerald-500 bg-emerald-500/10'
+            : 'border-gray-700 bg-gray-800/30'
+        }`}
+      >
+        📈 Line Chart
+      </button>
+
+      <button
+        onClick={() => setChartType('candlestick')}
+        className={`p-4 rounded-xl border transition-all ${
+          chartType === 'candlestick'
+            ? 'border-emerald-500 bg-emerald-500/10'
+            : 'border-gray-700 bg-gray-800/30'
+        }`}
+      >
+        🕯️ Candlestick
+      </button>
+    </div>
+  </div>
+)}
+
 
           {/* Refresh Interval */}
           <div>

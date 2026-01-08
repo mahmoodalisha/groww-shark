@@ -108,6 +108,8 @@ groww-shark/
 │   ├── components/
 │   │   ├── BottomNav.js
 │   │   ├── WidgetCard.js                 # card / table / chart
+│   │   ├── JsonExplorer.js 
+│   │   ├── DashboardBackup.js 
 │
 │   ├── charts/                           #  CHART ENGINE
 │   │   ├── ChartRenderer.js              # Chart.js wrapper
@@ -124,6 +126,7 @@ groww-shark/
 │   │   ├── fetchers/
 │   │   │   ├── snapshotFetcher.js        # watchlist/widgets prices
 │   │   │   ├── historyFetcher.js         # charts history only
+│   │   │   ├── widgetFetcher.js
 │   │   │   └── cache.js                  # shared cache helper
 │   │   │
 │   │   ├── normalizers/
